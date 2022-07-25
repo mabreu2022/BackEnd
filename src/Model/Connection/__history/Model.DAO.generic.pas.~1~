@@ -1,0 +1,7 @@
+unit Model.DAO.generic;
+
+interface
+
+implementation
+
+end.

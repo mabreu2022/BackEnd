@@ -1,0 +1,212 @@
+unit Model.Entity.Produtos;
+
+interface
+
+uses
+  SimpleAttributes, Data.DB;
+
+Type
+  [Tabela('PRODUTO')]
+  TPRODUTO = class
+    private
+       FID :               INTEGER;
+       FSTATUS:            STRING;
+       FMARCA:             STRING;
+       FDATA_INC:          TDATETIME;
+       FDATA_ALT:          TDATETIME;
+       FDATA_HAB:          TDATETIME;
+       FID_CATEG:          INTEGER;
+       FID_SUBCATEG:       INTEGER;
+       FID_EMB:            INTEGER;
+       FID_UNI:            INTERGER;
+       FID_CAP:            INTEGER;
+       FID_MARCA:          INTEGER;
+       FESPECIFICACAO:     STRING;
+       FCODEAN13:          STRING;
+       FCODPRO:            STRING;
+       FDESCRICAO:         STRING;
+       FENT_GRAMA:         DOUBLE;
+       FENT_QUILO:         DOUBLE;
+       FPCANTUNIDADE:      DOUBLE;
+       FPCATUUNIDADE:      DOUBLE;
+       FPCMEDUNIDADE:      DOUBLE;
+       FPCATUSUBUNIDADE:   DOUBLE;
+       FTXPERCENTLUCRO:    DOUBLE;
+       FTXPERCENTLUCROSUB: DOUBLE;
+       FQTESUBUNIDADE:     DOUBLE;
+       FEST_MIN:           DOUBLE;
+       FEST_MAX:           DOUBLE;
+       FEST_ANT:           DOUBLE;
+       FEST_ATU:           DOUBLE;
+       FPPRO:              DOUBLE;
+       FPROMOCAO:          STRING;
+       FL_MIN:             DOUBLE;
+       FL_MAX:             DOUBLE;
+       FL_MED:             DOUBLE;
+       FL_EFE:             DOUBLE;
+       FQTPRODVEND:        DOUBLE;
+       FLOC:               STRING;
+       FICMS:              DOUBLE;
+       FRESENHA:           TBLOBFIELD;
+       FCAPA:              TBLOBFIELD;
+       FSITTRIBUTARIA:     DOUBLE;
+       FDESCONTOCOMPRA:    DOUBLE;
+       FVRVENDAANTUNI:     DOUBLE;
+       FCONTSUBUNIDADE:    DOUBLE;
+
+    public
+      constructor Create;
+      destructor  Destroy; override;
+
+    published
+       [Campo('ID')]
+       property ID : integer read FID write SetID;
+
+      [Campo('STATUS')]
+      property STATUS : string read  FSTATUS write SetSTATUS;
+
+      [Campo('MARCA')]
+      property MARCA : string read FMARCA write SetFMARCA;
+
+      [Campo('DATA_INC')]
+      property DATA_INC : TDAteTime read FDATA_INC write SetDATA_INC;
+
+      [Campo('DATA_ALT')]
+      property DATA_ALT : TDateTime read FDATA_ALT write SetDATA_ALT;
+
+      [Campo('DATA_HAB')]
+      property DATA_HAB : TDateTime read FDATA_HAB write SetDATA_HAB;
+
+      [Campo('ID_CATEG')]
+      property ID_CATEG : integer read FID_CATEG write SetID_CATEG;
+
+      [Campo('ID_SUBCATEG')]
+      property ID_SUBCATEG : integer read FID_SUBCATEG write SetID_SUBCATEG;
+
+      [Campo('ID_EMB')]
+      property ID_EMB : integer read FID_EMB write SetID_EMB;
+
+      [Campo('ID_UNI')]
+      property ID_UNI : integer read FID_UNI write SetID_UNI;
+
+      [Campo('ID_CAP')]
+      property ID_CAP : integer read FID_CAP write SetID_CAP;
+
+      [Campo('ID_MARCA')]
+      property ID_MARCA : integer read FID_MARCA write SetID_MARCA;
+
+      [Campo('ESPECIFICACAO')]
+      property ESPECIFICACAO : string read FESPECIFICACAO write SetESPECIFICACAO;
+
+      [Campo('CODEAN13')]
+      property CODEAN13 : string read FCODEAN13 write SetCODEAN13;
+
+      [Campo('CODPRO')]
+      property CODPRO : string read FCODPRO write SetCODPRO;
+
+      [Campo('DESCRICAO')]
+      property DESCRICAO: string read FDESCRICAO write SetDESCRICAO;
+
+      [Campo('ENT_GRAMA')]
+      property ENT_GRAMA : double read FENT_GRAMA write SetENT_GRAMA;
+
+      [Campo('ENT_QUILO')]
+      property ENT_QUILO : double read FENT_QUILO write SetENT_QUILO;
+
+      [Campo('PCANTUNIDADE')]
+      property PCANTUNIDADE : double read FPCANTUNIDADE write SetPCANTUNIDADE;
+
+      [Campo('PCATUUNIDADE')]
+      property PCATUUNIDADE : double read FPCATUUNIDADE write SetPCATUUNIDADE;
+
+      [Campo('PCMEDUNIDADE')]
+      property PCMEDUNIDADE : double read FPCMEDUNIDADE write SetPCMEDUNIDADE;
+
+      [Campo('PCATUSUBUNIDADE')]
+      property PCATUSUBUNIDADE : double read FPCATUSUBUNIDADE write SetPCATUSUBUNIDADE;
+
+      [Campo('TXPERCENTLUCRO')]
+      property TXPERCENTLUCRO : double read FTXPERCENTLUCRO write SetTXPERCENTLUCRO;
+
+      [Campo('TXPERCENTLUCROSUB')]
+      property TXPERCENTLUCROSUB : double read FTXPERCENTLUCROSUB write SetTXPERCENTLUCROSUB;
+
+      [Campo('QTESUBUNIDADE')]
+      property QTESUBUNIDADE : double read FQTESUBUNIDADE write SetQTESUBUNIDADE;
+
+      [Campo('EST_MIN')]
+      property EST_MIN : double read FEST_MIN write SetEST_MIN;
+
+      [Campo('EST_MAX')]
+      property EST_MAX : double read FEST_MAX write SetEST_MAX;
+
+      [Campo('EST_ANT')]
+      property EST_ANT : double read FEST_ANT write SetEST_ANT;
+
+      [Campo('EST_ATU')]
+      property EST_ATU : double read FEST_ATU write SetEST_ATU;
+
+      [Campo('PPRO')]
+      property PPRO : double read FPPRO write SetPPRO;
+
+      [Campo('PROMOCAO')]
+      property PROMOCAO : string read FPROMOCAO write SetPROMOCAO;
+
+      [Campo('L_MIN')]
+      property L_MIN : double read FL_MIN write SetL_MIN;
+
+      [Campo('L_MAX')]
+      property L_MAX : double read FL_MAX write SetL_MAX;
+
+      [Campo('L_MED')]
+      property L_MED : double read FL_MED write SetL_MED;
+
+      [Campo('L_EFE')]
+      property L_EFE : double read FL_EFE write SetL_EFE;
+
+      [Campo('QTPRODVEND')]
+      property QTPRODVEND : double read FQTPRODVEND write SetQTPRODVEND;
+
+      [Campo('LOC')]
+      property LOC : string read FLOC write SetLOC;
+
+      [Campo('ICMS')]
+      property ICMS : double read FICMS write SetICMS;
+
+      [Campo('RESENHA')]
+      property RESENHA : TBlobField read FRESENHA write SetRESENHA;
+
+      [Campo('CAPA')]
+      property CAPA : TBlobField read FCAPA write SetCAPA;
+
+      [Campo('SITTRIBUTARIA')]
+      property SITTRIBUTARIA : double read FSITTRIBUTARIA write SetSITTRIBUTARIA;
+
+      [Campo('DESCONTOCOMPRA')]
+      property DESCONTOCOMPRA : double read FDESCONTOCOMPRA write SetDESCONTOCOMPRA;
+
+      [Campo('')]
+      property
+
+      [Campo('')]
+      property
+
+      [Campo('')]
+      property
+
+      [Campo('')]
+      property
+
+      [Campo('')]
+      property
+
+      [Campo('')]
+      property
+
+
+
+  end;
+
+implementation
+
+end.

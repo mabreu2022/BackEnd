@@ -1,0 +1,198 @@
+unit Model.Entity.Clientes;
+
+interface
+
+uses
+  SimpleAttributes;
+
+Type
+  [Tabela('CLIFOR')]
+  TCLIFOR = class
+    private
+      FID:         INTEGER;
+      FSTATUS:     STRING;
+      FMARCA:      STRING;
+      FDATA_INC:   TDateTime;
+      FDATA_ALT:   TDateTime;
+      FDATA_HAB:   TDateTime;
+      FCF:         STRING;
+      FPFPJ:       STRING;
+      FDCTO:       INTEGER;
+      FLIM_CRED:   DOUBLE;
+      FNOME:       STRING;
+      FNOME_FANT:  STRING;
+      FTIPRUA:     STRING;
+      FTITRUA:     STRING;
+      FNOMERUA:    STRING;
+      FNUMRUA:     STRING;
+      FBAIRRO:     STRING;
+      FCIDADE:     STRING;
+      FCEP:        STRING;
+      FDDD:        STRING;
+      FFONE:       STRING;
+      FRAMAL:      STRING;
+      FFAX:        STRING;
+      FCEL:        STRING;
+      FCONTATO:    STRING;
+      FCPFCNPJ:    STRING;
+      FRGIE:       STRING;
+      FPCPAG:      STRING;
+      FMAIL:       STRING;
+      FBLEMAIL:    STRING;
+      FWWW:        STRING;
+      FCOMPRA:     STRING;
+      FFORMA_PG:   STRING;
+      FFRETE:      STRING;
+      FID_TRANSP:  INTEGER;
+      FCODBANCO:   STRING;
+      FCODAGENCIA: STRING;
+      FNUMCONTA:   STRING;
+      FNOMBANCO:   STRING;
+      FNOMAGENCIA: STRING;
+      FFONE_R:     STRING;
+      FID_UF:      STRING;
+      FAPELIDO:    STRING;
+
+    public
+      constructor Create;
+      destructor  Destroy; override;
+
+    published
+      [Campo('ID'), Pk, AutoInc]
+      property ID: Integer read FID write SetID;
+
+      [Campo('STATUS')]
+      property STATUS : string read FSTATUS write SetSTATUS;
+
+      [Campo('MARCA')]
+      property MARCA : string read FFMARCA write SetMARCA;
+
+      [Campo('DATA_INC')]
+      property DATA_INC : TDateTime read FDATA_INC write SetDATA_INC;
+
+      [Campo('DATA_ALT')]
+      property DATA_ALT : TDateTime read FDATA_ALT write SetDATA_ALT;
+
+      [Campo('DATA_HAB')]
+      property DATA_HAB : TDAteTime read FDATA_HAB write SetDATA_HAB;
+
+      [Campo('CF')]
+      property CF : string read FCF write SetCF;
+
+      [Campo('PFPJ')]
+      property PFPJ : string read FPFPJ write SetPFPJ;
+
+      [Campo('FDCTO')]
+      property DCTO : Interger reads FDCTO write SetDCTO;
+
+      [Campo('LIM_CRED')]
+      property LIM_CRED : Double read FLIM_CRED write SetLIM_CRED;
+
+      [Campo('NOME')]
+      property NOME: String read FNOME write SetNOME;
+
+      [Campo('NOME_FANT')]
+      property NOME_FANT : string read FNOME_FANT write SetNOME_FANT;
+
+      [Campo('TIPRUA')]
+      property TIPRUA : string read FTIPRUA write SetTIPRUA;
+
+      [Campo('TITRUA')]
+      property TITRUA : string read FTITRUA write SetTITRUA;
+
+      [Campo('NOMERUA')]
+      property NOMERUA : string read FNOMERUA write SetNOMERUA;
+
+      [Campo('NUMRUA')]
+      property NUMRUA : string read FNUMRUA write SetNUMRUA;
+
+      [Campo('BAIRRO')]
+      property BAIRRO : string read FBAIRRO write SetBAIRRO;
+
+      [Campo('CIDADE')]
+      property CIDADE : string read FCIDADE write SetCIDADE;
+
+      [Campo('CEP')]
+      property CEP : string read FCEP write SetCEP;
+
+      [Campo('DDD')]
+      property DDD : string read FDDD write SetDDD;
+
+      [Campo('FONE')]
+      property FONE : string read FFONE write SetFONE;
+
+      [Campo('RAMAL')]
+      property RAMAL : string read FRAMAL write SetRAMAL;
+
+      [Campo('FAX')]
+      property FAX : string read FFAX write SetFAX;
+
+      [Campo('CEL')]
+      property CEL : string read FCEL write SetCEL;
+
+      [Campo('CONTATO')]
+      property CONTATO : string read FCONTATO write SetCONTATO;
+
+      [Campo('CPFCNPJ')]
+      property CPFCNPJ : string read FCPFCNPJ write SetCPFCNPJ;
+
+      [Campo('RGIE')]
+      property RGIE : string read FRGIE write SetRGIE;
+
+      [Campo('PCPAG')]
+      property PCPAG : string read FPCPAG write SetPCPAG;
+
+      [Campo('MAIL')]
+      property MAIL : string read FMAIL write SetMAIL;
+
+      [Campo('BLEMAIL')]
+      property BLEMAIL : string read FBLEMAIL write SetBLEMAIL;
+
+      [Campo('WWW')]
+      property WWW : string read FWWW write SetWWW;
+
+      [Campo('COMPRA')]
+      property COMPRA : string read FCOMPRA write SetCOMPRA;
+
+      [Campo('FORMA_PG')]
+      property FORMA_PG : string read FFORMA_PG write SetFORMA_PG;
+
+       [Campo('FRETE')]
+      property FRETE : string read FFRETE write SetFRETE;
+
+      [Campo('ID_TRANSP')]
+      property ID_TRANSP : Integer read FID_TRANSP write SetID_TRANSP;
+
+      [Campo('CODBANCO')]
+      property CODBANCO : string read FCODBANCO write SetCODBANCO;
+
+       [Campo('CODAGENCIA')]
+      property CODAGENCIA : string read FCODAGENCIA write SetCODAGENCIA;
+
+      [Campo('NUMCONTA')]
+      property NUMCONTA : string read FNUMCONTA write SetNUMCONTA;
+
+      [Campo('NOMBANCO')]
+      property NOMBANCO : string read FNOMBANCO write SetNOMBANCO;
+
+       [Campo('NOMAGENCIA')]
+      property NOMAGENCIA : string read FNOMAGENCIA write SetNOMAGENCIA;
+
+      [Campo('FONE_R')]
+      property FONE_R : string read FFONE_R write SetFONE_R;
+
+      [Campo('ID_UF')]
+      property ID_UF : string read FID_UF write SetID_UF;
+
+      [Campo('APELIDO')]
+      property APELIDO : string read FAPELIDO write SetAPELIDO;
+
+  end;
+
+implementation
+
+{ TCLIENTES }
+
+
+
+end.

@@ -1,0 +1,532 @@
+unit Model.Entity.Estoque;
+
+interface
+
+uses
+  SimpleAttributes, Data.DB;
+
+Type
+  [Tabela('ESTOQUE')]
+  TESTOQUE = class
+    private
+      FCODEEAN13:      STRING;
+      FSTATUS:         STRING;
+      FMARCA:          STRING;
+      FDATA_INC:       TDATETIME;
+      FDATA_ALT:       TDATETIME;
+      FDATA_HAB:       TDATETIME;
+      FID_SUBCATEG:    INTEGER;
+      FDESCRICAO:      STRING;
+      FID_MARCA:       INTEGER;
+      FID_EMB:         INTEGER;
+      FENT_GRAMA:      FLOAT;
+      FENT_QUILO:      FLOAT;
+      FPESO_KG:        FLOAT;
+      FPESO_G:         FLOAT;
+      FESPECIFICACAO:  STRING;
+      FPCANTUNIDADE:   FLOAT;
+      FCATUNIDADE:     FLOAT;
+      FPCATUSUUNIDADE: FLOAT;
+      FP_PRO:           FLOAT;
+      FPROMOCAO:       STRING;
+      FL_MIN:          FLOAT;
+      FL_MAX:          FLOAT;
+      FL_MED:          FLOAT;
+      FL_EFE:          FLOAT;
+      FEST_MIN:        FLOAT;
+      FEST_MAX:        FLOAT;
+      FEST_ATU:        FLOAT;
+      FLOC:            STRING;
+      FICMS:           FLOAT;
+      FRESENHA:        TBLOB;//VERIFICAR
+      FCAPA:           TBLOB;//VERIFICAR
+      FSITTRIBUTARIA:  FLOAT;
+      FDESCONTOCOMPRA: FLOAT;
+      FINICIAL:        STRING;
+      FID_CAP:         INTEGER;
+      FID_CATEG:       INTEGER;
+      FID_UNI:         INTEGER;
+      FCODPROD:        STRING;
+      FCODCAT:         STRING;
+      FCODSUBCAT:      STRING;
+      FPRECI:          STRING;
+      FCONTROL:        STRING;
+      FSUBUNIDADE:     STRING;
+      FQTESUBUNIDADE:  FLOAT;
+      FEST_ANT:        FLOAT;
+      FPCMEDUNIDADE:   FLOAT;
+      FQTPRODVEND:     FLOAT;
+      FTXPERCENTLUCRO: FLOAT;
+      FTXPERCENTLUCROSUB: FLOAT;
+    FID: Integer;
+    FNOME: String;
+
+      procedure SetFCODEEAN13(const Value:     string);
+      procedure SetFSTATUS(const Value:        string);
+      procedure SetFMARCA(const Value:         string);
+      procedure SetFDATA_INC(const Value:      TDateTime);
+      procedure SetFDATA_ALT(const Value:      TDateTime);
+      procedure SetFDATA_HAB(const Value:      TDateTime);
+      procedure SetFID_SUBCATEG(const Value:   integer);
+      procedure SetFDESCRICAO(const Value:     string);
+      procedure SetFID_MARCA(const Value:      INTEGER);
+      procedure SetFID_EMB(const Value:        INTEGER);
+      procedure SetFENT_GRAMA(const Value:     FLOAT);
+      procedure SetFENT_QUILO(const Value:     FLOAT);
+      procedure SetFPESO_KG(const Value:       FLOAT);
+      procedure SetFPESO_G(const Value:        FLOAT);
+      procedure SetFESPECIFICACAO(const Value: string);
+      procedure SetFPCANTUNIDADE(const Value:  FLOAT);
+      procedure SetFCATUNIDADE(const Value:    FLOAT);
+      procedure SetFPCATUSUUNIDADE(const Value:FLOAT);
+      procedure SetF_PRO(const Value:          FLOAT);
+      procedure SetFPROMOCAO(const Value:      string);
+      procedure SetFL_MIN(const Value:         FLOAT);
+      procedure SetFL_MAX(const Value:         FLOAT);
+      procedure SetFL_MED(const Value:         FLOAT);
+      procedure SetFL_EFE(const Value:         FLOAT);
+      procedure SetFEST_MIN(const Value:       FLOAT);
+      procedure SetFEST_MAX(const Value:       FLOAT);
+      procedure SetFEST_ATU(const Value:       FLOAT);
+      procedure SetFLOC(const Value:           STRING);
+      procedure SetFICMS(const Value:           FLOAT);
+      procedure SetFRESENHA(const Value:        TBLOB);//VERIFICAR
+      procedure SetFCAPA(const Value:           TBLOB);//VERIFICAR
+      procedure SetFSITTRIBUTARIA(const Value:  FLOAT);
+      procedure SetFDESCONTOCOMPRA(const Value: FLOAT);
+      procedure SetFINICIAL(const Value:        STRING);
+      procedure SetFID_CAP(const Value:         INTEGER);
+      procedure SetFID_CATEG(const Value:       INTEGER);
+      procedure SetFID_UNI(const Value:         INTEGER);
+      procedure SetFCODPROD(const Value:        STRING);
+      procedure SetFCODCAT(const Value:         STRING);
+      procedure SetFCODSUBCAT(const Value:      STRING);
+      procedure SetFPRECI(const Value:          STRING);
+      procedure SetFCONTROL(const Value:        STRING);
+      procedure SetFSUBUNIDADE(const Value:     STRING);
+      procedure SetFQTESUBUNIDADE(const Value:  FLOAT);
+      procedure SetFEST_ANT(const Value:        FLOAT);
+      procedure SetFPCMEDUNIDADE(const Value:   FLOAT);
+      procedure SetFQTPRODVEND(const Value:     FLOAT);
+      procedure SetFTXPERCENTLUCRO(const Value: FLOAT);
+      procedure SetFTXPERCENTLUCROSUB(const Value: FLOAT);
+    procedure SetID(const Value: Integer);
+    procedure SetNOME(const Value: String);
+
+    public
+      constructor Create;
+      destructor  Destroy; override;
+
+    published
+       [Campo('CODEEAN13')]
+       property CODEEAN13 read FCODEEAN13 write SetFCODEEAN13;
+
+      [Campo('STATUS')]
+      property STATUS read  FSTATUS write SetFSTATUS;
+
+      [Campo('MARCA')]
+      property MARCA read FMARCA write SetFMARCA;
+
+      [Campo('DATA_INC')]
+      property  DATA_INC read FDATA_INC write SetFDATA_INC;
+
+      [Campo('DATA_ALT')]
+      property DATA_ALT read FDATA_ALT write SetFDATA_ALT;
+
+      [Campo('DATA_HAB')]
+      property DATA_HAB read FDATA_HAB write SetFDATA_HAB;
+
+      [Campo('ID_SUBCATEG')]
+      property ID_SUBCATEG read FID_SUBCATEG write SetFID_SUBCATEG;
+
+      [Campo('DESCRICAO')]
+      property DESCRICAO read FDESCRICAO write SetFDESCRICAO;
+
+      [Campo('ID_MARCA')]
+      property ID_MARCA read FID_MARCA write SetFID_MARCA;
+
+      [Campo('ID_EMB')]
+      property ID_EMB read FID_EMB write SetFID_EMB;
+
+      [Campo('ENT_GRAMA')]
+      property ENT_GRAMA read FENT_GRAMA write SetFENT_GRAMA;
+
+      [Campo('ENT_QUILO')]
+      property ENT_QUILO read FENT_QUILO write SetFENT_QUILO;
+
+      [Campo('PESO_G')]
+      property PESO_G read FPESO_G write SetFPESO_G;
+
+      [Campo('PESO_KG')]
+      property PESO_KG read FPESO_KG write SetFPESO_KG;
+
+      [Campo('ESPECIFICACAO')]
+      property ESPECIFICACAO read FESPECIFICACAO write SetFESPECIFICACAO;
+
+      [Campo('PCANTUNIDADE')]
+      property PCANTUNIDADE read FPCANTUNIDADE write SetFPCANTUNIDADE;
+
+      [Campo('CATUNIDADE')]
+      property CATUNIDADE read FCATUNIDADE write SetFCATUNIDADE;
+
+      [Campo('PCATUSUUNIDADE')]
+      property PCATUSUUNIDADE read FPCATUSUUNIDADE write SetPCATUSUUNIDADE;
+
+      [Campo('P_PRO')]
+      property P_PRO read FP_PRO write SetFP_PRO;
+
+      [Campo('PROMOCAO')]
+      property PROMOCAO read FPROMOCAO write SetFPROMOCAO;
+
+      [Campo('L_MIN')]
+      property L_MIN read FL_MIN write SetFL_MIN;
+
+      [Campo('L_MAX')]
+      property L_MAX read FL_MAX write SetFL_MAX;
+
+      [Campo('L_MED')]
+      property L_MED read FL_MED write SetFL_MED;
+
+      [Campo('L_EFE')]
+      property L_EFE read FL_EFE write SetFL_EFE;
+
+      [Campo('EST_MIN')]
+      property EST_MIN read FEST_MIN SetFEST_MIN;
+
+      [Campo('EST_MAX')]
+      property EST_MAX read FEST_MAX write SetFEST_MAX;
+
+      [Campo('EST_ATU')]
+      property EST_ATU read FEST_ATU write SetFEST_ATU;
+
+      [Campo('LOC')]
+      property LOC read FLOC write SetFLOC;
+
+      [Campo('ICMS')]
+      property ICMS read FICMS write SetFICMS;
+
+      [Campo('RESENHA')]
+      property RESENHA read FRESENHA write SetFRESENHA
+
+      [Campo('CAPA')]
+      property CAPA read FCAPA write SetFCAPA;
+
+      [Campo('SITTRIBUTARIA')]
+      property SITTRIBUTARIA read FSITTRIBUTARIA write SetFSITTRIBUTARIA;
+
+      [Campo('DESCONTOCOMPRA')]
+      property DESCONTOCOMPRA read FDESCONTOCOMPRA write SetFDESCONTOCOMPRA;
+
+      [Campo('INICIAL')]
+      property INICIAL read FINICIAL write SetFINICIAL;
+
+      [Campo('ID_CAP')]
+      property ID_CAP read FID_CAP write SetFID_CAP;
+
+      [Campo('ID_CATEG')]
+      property ID_CATEG read FID_CATEG write SetFID_CATEG;
+
+      [Campo('ID_UNI')]
+      property ID_UNI read FID_UNI write SetFID_UNI;
+
+      [Campo('CODPROD')]
+      property CODPROD read FCODPROD write SetFCODPROD;
+
+      [Campo('CODCAT')]
+      property CODCAT read FCODCAT write SetFCODCAT;
+
+      [Campo('CODSUBCAT')]
+      property CODSUBCAT read FCODSUBCAT write SetFCODSUBCAT;
+
+      [Campo('PRECI')]
+      property PRECI read FPRECI write SetFPRECI;
+
+      [Campo('CONTROL')]
+      property CONTROL read FCONTROL write SetFCONTROL;
+
+      [Campo('SUBUNIDADE')]
+      property SUBUNIDADE read FSUBUNIDADE write SetFSUBUNIDADE;
+
+      [Campo('QTESUBUNIDADE')]
+      property QTESUBUNIDADE read FQTESUBUNIDADE write SetFQTESUBUNIDADE;
+
+      [Campo('EST_ANT')]
+      property EST_ANT read FEST_ANT write SetFEST_ANT;
+
+      [Campo('PCMEDUNIDADE')]
+      property PCMEDUNIDADE read FPCMEDUNIDADE write SetFPCMEDUNIDADE;
+
+      [Campo('QTPRODVEND')]
+      property QTPRODVEND read FQTPRODVEND write SetFQTPRODVEND;
+
+      [Campo('TXPERCENTLUCRO')]
+      property TXPERCENTLUCRO read FTXPERCENTLUCRO write SetFTXPERCENTLUCRO;
+
+      [Campo('TXPERCENTLUCROSUB')]
+      property  TXPERCENTLUCROSUB read FTXPERCENTLUCROSUB write SetFTXPERCENTLUCROSUB;
+
+  end;
+
+implementation
+
+{ TESTOQUE }
+
+constructor TESTOQUE.Create;
+begin
+
+end;
+
+destructor TESTOQUE.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TESTOQUE.SetFCODEEAN13(const Value: string);
+begin
+  FCODEEAN13 := Value;
+end;
+
+procedure TESTOQUE.SetFSTATUS(const Value: string);
+begin
+  FSTATUS := Value;
+end;
+
+procedure TESTOQUE.SetFMARCA(const Value: string);
+begin
+  FMARCA := Value;
+end;
+
+procedure TESTOQUE.SetFDATA_INC(const Value: TDateTime);
+begin
+  FDATA_INC := Value;
+end;
+
+procedure TESTOQUE.SetFDATA_ALT(const Value: TDateTime);
+begin
+  FDATA_ALT := Value;
+end;
+
+procedure TESTOQUE.SetFDATA_HAB(const Value: TDateTime);
+begin
+   FDATA_HAB := Value;
+end;
+
+procedure TESTOQUE.SetFID_SUBCATEG(const Value: integer);
+begin
+  FID_SUBCATEG := Value;
+end;
+
+procedure TESTOQUE.SetFDESCRICAO(const Value: string);
+begin
+  FDESCRICAO := Value;
+end;
+
+procedure TESTOQUE.SetFID_MARCA(const Value: INTEGER);
+begin
+  FID_MARCA := Value;
+end;
+
+procedure TESTOQUE.SetFID_EMB(const Value: INTEGER);
+begin
+  FID_EMB := Value;
+end;
+
+procedure TESTOQUE.SetFENT_GRAMA(const Value: FLOAT);
+begin
+  FENT_GRAMA := Value;
+end;
+
+procedure TESTOQUE.SetFENT_QUILO(const Value: FLOAT);
+begin
+  FENT_QUILO := Value;
+end;
+
+
+procedure TESTOQUE.SetFPESO_G(const Value: FLOAT);
+begin
+  FPESO_G := Value;
+end;
+
+procedure TESTOQUE.SetFPESO_KG(const Value: FLOAT);
+begin
+  FPESO_KG := Value;
+end;
+
+procedure TESTOQUE.SetFESPECIFICACAO(const Value: string);
+begin
+  FESPECIFICACAO := Value;
+end;
+
+procedure TESTOQUE.SetFPCANTUNIDADE(const Value: FLOAT);
+begin
+  FPCANTUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFCATUNIDADE(const Value: FLOAT);
+begin
+   FCATUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFPCATUSUUNIDADE(const Value: FLOAT);
+begin
+  FPCATUSUUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFP_PRO(const Value: FLOAT);
+begin
+  FP_PRO := Value;
+end;
+
+procedure TESTOQUE.SetFPROMOCAO(const Value: string);
+begin
+   FPROMOCAO := Value;
+end;
+
+procedure TESTOQUE.SetFL_MIN(const Value: FLOAT);
+begin
+  FL_MIN := Value;
+end;
+
+procedure TESTOQUE.SetFL_MAX(const Value: FLOAT);
+begin
+  FL_MAX := Value;
+end;
+
+procedure TESTOQUE.SetFL_MED(const Value: FLOAT);
+begin
+  FL_MED := Value;
+end;
+
+procedure TESTOQUE.SetFL_EFE(const Value: FLOAT);
+begin
+  FL_EFE := Value;
+end;
+
+procedure TESTOQUE.SetFEST_MIN(const Value: FLOAT);
+begin
+  FEST_MIN := Value;
+end;
+
+procedure TESTOQUE.SetFEST_MAX(const Value: FLOAT);
+begin
+  FEST_MAX := Value;
+end;
+
+procedure TESTOQUE.SetFEST_ATU(const Value: FLOAT);
+begin
+  FEST_ATU := Value;
+end;
+
+procedure TESTOQUE.SetFLOC(const Value: STRING);
+begin
+  FLOC := Value;
+end;
+
+procedure TESTOQUE.SetFICMS(const Value: FLOAT);
+begin
+  FICMS := Value;
+end;
+
+procedure TESTOQUE.SetFRESENHA(const Value: TBLOB);
+begin
+  FRESENHA := Value;
+end;
+
+procedure TESTOQUE.SetFCAPA(const Value: TBLOB);
+begin
+  FCAPA := Value;
+end;
+
+procedure TESTOQUE.SetFSITTRIBUTARIA(const Value: FLOAT);
+begin
+  FSITTRIBUTARIA := Value;
+end;
+
+procedure TESTOQUE.SetFDESCONTOCOMPRA(const Value: FLOAT);
+begin
+  FDESCONTOCOMPRA := Value;
+end;
+
+procedure TESTOQUE.SetFINICIAL(const Value: STRING);
+begin
+  FINICIAL := Value;
+end;
+
+procedure TESTOQUE.SetFID_CAP(const Value: INTEGER);
+begin
+  FID_CAP := Value;
+end;
+
+procedure TESTOQUE.SetFID_CATEG(const Value: INTEGER);
+begin
+  FID_CATEG := Value;
+end;
+
+procedure TESTOQUE.SetFID_UNI(const Value: INTEGER);
+begin
+  FID_UNI := Value;
+end;
+
+procedure TESTOQUE.SetFCODPROD(const Value: STRING);
+begin
+  FCODPROD := Value;
+end;
+
+procedure TESTOQUE.SetFCODCAT(const Value: STRING);
+begin
+  FCODCAT := Value;
+end;
+
+procedure TESTOQUE.SetFCODSUBCAT(const Value: STRING);
+begin
+  FCODSUBCAT := Value;
+end;
+
+procedure TESTOQUE.SetFPRECI(const Value: STRING);
+begin
+  FPRECI := Value;
+end;
+
+procedure TESTOQUE.SetFCONTROL(const Value: STRING);
+begin
+  FCONTROL := Value;
+end;
+
+procedure TESTOQUE.SetFSUBUNIDADE(const Value: STRING);
+begin
+  FSUBUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFQTESUBUNIDADE(const Value: FLOAT);
+begin
+  FQTESUBUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFEST_ANT(const Value: FLOAT);
+begin
+  FEST_ANT := Value;
+end;
+
+procedure TESTOQUE.SetFPCMEDUNIDADE(const Value: FLOAT);
+begin
+  FPCMEDUNIDADE := Value;
+end;
+
+procedure TESTOQUE.SetFQTPRODVEND(const Value: FLOAT);
+begin
+  FQTPRODVEND := Value;
+end;
+
+procedure TESTOQUE.SetFTXPERCENTLUCRO(const Value: FLOAT);
+begin
+  FTXPERCENTLUCRO := Value;
+end;
+
+procedure TESTOQUE.SetFTXPERCENTLUCROSUB(const Value: FLOAT);
+begin
+  FTXPERCENTLUCROSUB := Value;
+end;
+
+
+end.

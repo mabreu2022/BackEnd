@@ -1,0 +1,20 @@
+unit Model.DAO.Generic;
+
+interface
+
+uses
+  System.JSON,
+  Rest.Json,
+  SimpleInterface,
+  SimpleDAO,
+  SimpleAtributes,
+  SimpleQueryFiredac,
+  Data.DB,
+  DataSetConverter4D,
+  DataSetConverter4D.Impl,
+  DataSetConverter4D.Helper,
+  DataSetConverter4D.Util;
+
+implementation
+
+end.

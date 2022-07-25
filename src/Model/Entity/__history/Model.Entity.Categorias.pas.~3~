@@ -1,0 +1,53 @@
+unit Model.Entity.Categorias;
+
+interface
+
+uses
+  SimpleAttributes, Data.DB;
+
+Type
+  [Tabela('CATEG')]
+  TCATEG = class
+    private
+       FID :        INTEGER;
+       FSTATUS:     STRING;
+       FMARCA:      STRING;
+       FDATA_INC:   TDATETIME;
+       FDATA_ALT:   TDATETIME;
+       FDATA_HAB:   TDATETIME;
+       FDESCRICAO:  STRING;
+       FCODCAT:     STRING;
+    public
+      constructor Create;
+      destructor  Destroy; override;
+
+    published
+       [Campo('ID')]
+       property ID : integer read FID write SetID;
+
+      [Campo('STATUS')]
+      property STATUS : string read  FSTATUS write SetSTATUS;
+
+      [Campo('MARCA')]
+      property MARCA : string read FMARCA write SetFMARCA;
+
+      [Campo('DATA_INC')]
+      property DATA_INC : TDAteTime read FDATA_INC write SetDATA_INC;
+
+      [Campo('DATA_ALT')]
+      property DATA_ALT : TDateTime read FDATA_ALT write SetDATA_ALT;
+
+      [Campo('DATA_HAB')]
+      property DATA_HAB : TDateTime read FDATA_HAB write SetDATA_HAB;
+
+      [Campo('DESCRICAO')]
+      property DESCRICAO : string read FDESCRICAO write SetDESCRICAO;
+
+      [Campo('')]
+      property
+
+  end;
+
+implementation
+
+end.
