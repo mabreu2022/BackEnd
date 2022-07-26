@@ -30,9 +30,34 @@ end;
 procedure Get(Req : THorseRequest; Res: THorseResponse; Next: TProc);
 var
   FDAO : iDAOGeneric<TPRODUTO>;
+  jResult: TJSONArray;
+  Hash : TIdHashMessageDigest5;
+  eTag: String;
 begin
+  //Buscamos od Dados
   FDAO := TDAOGeneric<TPRODUTO>.New;
+  JResult:=FDAO.Find;
+
+  //Geramos o Hash da Consulta
+  Hash := TIdHashMessageDigest5.Create;
+  try
+    eTAg:= Hash.HashStringAsHex(jResult.ToString);
+  finally
+    Hash.Free;
+  end;
+
+  //Injeta o eTag no Cabeçalho
+  Res.AddHeader('ETag',eTag);
+
+  //Verifica se precisa ou não devolver os dados
+  if Req.Headers['if-None-Match']  = eTag then
+    Res.Status(304)
+  else
+    Res.Send<TJSONArray>(jResult);
+
   Res.Send<TJSONArray>(FDAO.Find);
+
+  //Res.AddHeader()
 end;
 procedure GetCOD(Req : THorseRequest; Res: THorseResponse; Next: TProc);
 begin
