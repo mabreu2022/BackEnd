@@ -40,10 +40,12 @@ begin
   if not Assigned(FConnList) then
     FConnList := TObjectList<TFDConnection>.Create;
 
+  //FDriver.VendorLib  :='C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll';
+
   FConnList.Add(TFDConnection.Create(Nil));
   Result:= Pred(FConnList.Count);
   FConnList.Items[Result].Params.DriverID := 'FB';
-  FConnList.Items[Result].Params.Database := 'C:\BancosFirebird\GERSUPERNOVO40.FDB';
+  FConnList.Items[Result].Params.Database := 'C:\Gersuper\DataBase\GERSUPER.FDB';
   FConnList.Items[Result].Params.UserName := 'SYSDBA';
   FConnList.Items[Result].Params.Password := 'masterkey';
   FConnList.Items[Result].Params.Add('Port=3050');

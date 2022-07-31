@@ -1,0 +1,7 @@
+_recovery/*
+*.txt
+__history/*
+*.identcache
+*.dproj.local
+__history/*.*
+

@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{2EBBF9E5-3502-4E6F-BA4F-53155B5FA923}</ProjectGuid>
+        <ProjectGuid>{8E7ABE60-352B-4B51-BA8D-4D3C1AAED1D9}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="backend.dproj">

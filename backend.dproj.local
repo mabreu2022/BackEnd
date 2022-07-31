@@ -36,10 +36,9 @@
     <Transaction>2022/07/24 22:15:17.000.259,C:\API\backend\src\Model\Entity\Model.Entity.Categorias.pas=C:\API\backend\Unit1.pas</Transaction>
     <Transaction>2022/07/24 22:19:44.000.375,=C:\API\backend\Unit1.pas</Transaction>
     <Transaction>2022/07/24 22:20:03.000.972,C:\API\backend\src\Controller\Controller.CATEGORIAS.pas=C:\API\backend\Unit1.pas</Transaction>
+    <Transaction>2022/07/26 07:00:32.000.950,C:\API\backend\Controlers\Controllers.Estoque.pas=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="Controlers"/>
-    <File Path="Controlers\Controllers.Estoque.pas"/>
     <File Path="src"/>
     <File Path="src\Controller"/>
     <File Path="src\Controller\Controller.CATEGORIAS.pas"/>
