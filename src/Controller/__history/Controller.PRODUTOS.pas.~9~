@@ -57,7 +57,7 @@ begin
 
   Res.Send<TJSONArray>(FDAO.Find);
 
-
+  //Res.AddHeader()
 end;
 procedure GetCOD(Req : THorseRequest; Res: THorseResponse; Next: TProc);
 begin
