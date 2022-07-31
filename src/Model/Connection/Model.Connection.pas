@@ -45,7 +45,7 @@ begin
   FConnList.Add(TFDConnection.Create(Nil));
   Result:= Pred(FConnList.Count);
   FConnList.Items[Result].Params.DriverID := 'FB';
-  FConnList.Items[Result].Params.Database := 'C:\Gersuper\DataBase\GERSUPER.FDB';
+  FConnList.Items[Result].Params.Database := 'C:\GerSuper\DataBase\GERSUPER.FDB';
   FConnList.Items[Result].Params.UserName := 'SYSDBA';
   FConnList.Items[Result].Params.Password := 'masterkey';
   FConnList.Items[Result].Params.Add('Port=3050');

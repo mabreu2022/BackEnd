@@ -40,20 +40,26 @@ begin
   if not Assigned(FConnList) then
     FConnList := TObjectList<TFDConnection>.Create;
 
+  //FDriver.VendorLib  :='C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll';
+
   FConnList.Add(TFDConnection.Create(Nil));
   Result:= Pred(FConnList.Count);
+  FConnList.Items[Result].Params.DriverID := 'FB';
+  FConnList.Items[Result].Params.Database := 'C:\Gersuper\DataBase\GERSUPER.FDB';
+  FConnList.Items[Result].Params.UserName := 'SYSDBA';
+  FConnList.Items[Result].Params.Password := 'masterkey';
+  FConnList.Items[Result].Params.Add('Port=3050');
+  FConnList.Items[Result].Params.Add('CharacterSet=utf8');
+  FConnList.Items[Result].Params.Add('Protocol= ipTCPIP');
+  FConnList.Items[Result].Params.Add('Server=127.0.0.1');
+  FConnList.Items[Result].Connected;
+end;
 
-  FConnList.Items[IndexConn].Params.DriverID := 'FB';
-  FConnList.Items[IndexConn].Params.Database := 'C:\BancosFirebird\TESTE.FDB';
-  FConnList.Items[IndexConn].Params.UserName := 'SYSDBA';
-  FConnList.Items[IndexConn].Params.Password := 'masterkey';
-  FConnList.Items[IndexConn].Params.Add('Port=3050');
-  FConnList.Items[IndexConn].Params.Add('CharacterSet=win1252');
-  FConnList.Items[IndexConn].Params.Add('Protocol= ipTCPIP');
-  FConnList.Items[IndexConn].Params.Add('Server=127.0.0.1');
-  FConnList.Items[IndexConn].Connected;
-
-
+procedure Disconnected(Index: Integer);
+begin
+  FConnList.Items[Index].Connected:= False;
+  FConnList.Items[Index].Free;
+  FConnList.TrimExcess;
 end;
 
 end.
